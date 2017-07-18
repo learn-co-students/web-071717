@@ -3,6 +3,8 @@ require 'rest-client'
 require 'json'
 
 # Write an application that takes some user input
+# hits the google books api
+# and prints the title author and description of each book
 
 def get_user_input
   puts 'Welcome to Google Books Searcher'
@@ -49,9 +51,7 @@ end
 
 def run
   term = get_user_input
-  # hit the google books api
   book_data = fetch_books(term)
-
   print_books(book_data)
 end
 
@@ -59,9 +59,3 @@ end
 run
 
 
-
-
-
-
-
-# and display the title author and description of the first 10 books
