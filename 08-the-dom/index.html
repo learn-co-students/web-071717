@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<style>
+.selected {
+    color: red;
+}
+button {
+    font-size:20pt
+}
+</style>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- <script src="" charset="utf-8"></script> -->
+  </head>
+  <body>
+      <h1>My Articles</h1>
+      <h3 class="article-header">Article 1</h3>
+      <p class="article">Poke keytar kombucha four loko literally seitan narwhal try-hard +1 af tacos umami. Umami crucifix gentrify mixtape ugh. Craft beer bicycle rights green juice, migas 90's banjo letterpress plaid. Actually try-hard health goth poutine paleo. Fam pitchfork ennui +1. Scenester direct trade pok pok actually, street art raclette typewriter franzen ramps. Literally authentic keytar, edison bulb yuccie selvage small batch. Gentrify unicorn readymade
+      post-ironic distillery snackwave leggings 90's microdosing venmo paleo scenester. Vegan sriracha synth, blue bottle hammock hoodie chillwave squid snackwave banjo tumblr taiyaki. Portland schlitz jianbing hot chicken vice gluten-free fam. Raclette next level unicorn, retro selvage chambray typewriter viral vice put a bird on it chartreuse bicycle rights kombucha XOXO woke. Cray blog fanny pack ennui jianbing lyft direct trade.
+      </p>
+      <h3 class="article-header">Article 2</h3>
+      <p class="article">Poke keytar kombucha four loko literally seitan narwhal try-hard +1 af tacos umami. Umami crucifix gentrify mixtape ugh. Craft beer bicycle rights green juice, migas 90's banjo letterpress plaid. Actually try-hard health goth poutine paleo. Fam pitchfork ennui +1. Scenester direct trade pok pok actually, street art raclette typewriter franzen ramps. Literally authentic keytar, edison bulb yuccie selvage small batch. Gentrify unicorn readymade
+      post-ironic distillery snackwave leggings 90's microdosing venmo paleo scenester. Vegan sriracha synth, blue bottle hammock hoodie chillwave squid snackwave banjo tumblr taiyaki. Portland schlitz jianbing hot chicken vice gluten-free fam. Raclette next level unicorn, retro selvage chambray typewriter viral vice put a bird on it chartreuse bicycle rights kombucha XOXO woke. Cray blog fanny pack ennui jianbing lyft direct trade.
+      </p>
+      <h3 class="article-header">Article 2</h3>
+      <p class="article">Poke keytar kombucha four loko literally seitan narwhal try-hard +1 af tacos umami. Umami crucifix gentrify mixtape ugh. Craft beer bicycle rights green juice, migas 90's banjo letterpress plaid. Actually try-hard health goth poutine paleo. Fam pitchfork ennui +1. Scenester direct trade pok pok actually, street art raclette typewriter franzen ramps. Literally authentic keytar, edison bulb yuccie selvage small batch. Gentrify unicorn readymade
+      post-ironic distillery snackwave leggings 90's microdosing venmo paleo scenester. Vegan sriracha synth, blue bottle hammock hoodie chillwave squid snackwave banjo tumblr taiyaki. Portland schlitz jianbing hot chicken vice gluten-free fam. Raclette next level unicorn, retro selvage chambray typewriter viral vice put a bird on it chartreuse bicycle rights kombucha XOXO woke. Cray blog fanny pack ennui jianbing lyft direct trade.
+      </p>
+      <button data-select="true">Select First Article</button>
+      <br />
+      <button id="unselect" data-fred="false">Unselect First Article</button>
+
+    <script>
+        function toggleArticleOne(shouldSelect) {
+            firstArticle = document.querySelector(".article")
+            if (shouldSelect){
+                firstArticle.className += " selected"
+            } else {
+                firstArticle.className = "article"
+            }
+        }
+
+
+        myButton = document.querySelector("button")
+        myButton.addEventListener("click", function(event){
+            if (event.target.data.select==="true") {
+                toggleArticleOne(true)
+            }
+        });
+
+        unSelectButton = document.querySelector("#unselect")
+        unSelectButton.addEventListener("click", function(event){
+            toggleArticleOne(false)
+        });
+    </script>
+  </body>
+
+</html>
