@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchTerm = event.target.value
 
     // 2. Do some data manipulation / access
+    const filteredPokemon = pokemonList.filter(searchTerm)
 
+    console.log(filteredPokemon)
     // 3. Render to the screen
 
   })
@@ -51,19 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // function getFilterPokemonCallback(pokemonContainer) {
 //   // This is a function which returns a function (closure) that holds on to the value of pokemonContainer
 //   return function filterPokemon(event) {
-//
-//     // 1. Get some input from the user
-//     const searchTerm = event.target.value
-//
-//     if (!searchTerm) {
-//       pokemonContainer.innerHTML = ''
-//       return
-//     }
-//
-//     // 2. Do some data manipulation / access
-//     const filteredPokemon = POKEMONS.filter(function(pokemon) {
-//       return pokemon.name.includes(searchTerm) // OR return pokemon.name.match(new RegExp(searchTerm))
-//     })
 //
 //     // 3. Render to the screen
 //     const filteredPokemonTemplate = filteredPokemon.map(renderPokemon).join('')
