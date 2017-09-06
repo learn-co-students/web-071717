@@ -9,10 +9,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
   searchInput.addEventListener('keyup', function() {
     console.log('filter list on search input')
+    // 1. Get some input from the user
+
+    // 2. Do some data manipulation / access
+
+    // 3. Render to the screen
+
   })
 
   pokemonContainer.addEventListener('click', function() {
     console.log('flip image on card click')
+    // 1. Get some input from the user
+
+    // 2. Do some data manipulation / access
+
+    // 3. Render to the screen
+
   })
 })
 
