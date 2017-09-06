@@ -28,18 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const foundPokemon = pokemonList.findByName(pokemonName)
     foundPokemon.flipImage()
 
-    console.log(foundPokemon.backImage, foundPokemon.currentImage)
-
     // 3. Render to the screen
-
+    const foundPokemonTemplate = foundPokemon.render()
+    console.log(foundPokemonTemplate)
   })
 })
 
 // // eventHandlers.js
 // function flipPokemon(event) {
 //   if (event.target.classList.contains('flip-image')) {
-//
-//     const foundPokemonTemplate = renderPokemon(foundPokemon)
 //
 //     // 3. Re-render my data
 //     document.getElementById(`${foundPokemon.name}`).innerHTML = foundPokemonTemplate // OR event.target.parentElement.parentElement.innerHTML = foundPokemonTemplate

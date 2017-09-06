@@ -42,7 +42,7 @@ class Pokemon {
         <h1 class="center-text">${this.name}</h1>
         <div style="width:239px;margin:auto">
           <div style="width:96px;margin:auto">
-            <img id="${this.name}-img" src="${this.frontImage}">
+            <img id="${this.name}-img" src="${this.currentImage}">
           </div>
         </div>
         <p style="padding:10px;" class="center-text flip-image" data-pokename="${this.name}" data-action="flip-image">flip card</p>
