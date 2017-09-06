@@ -56,4 +56,13 @@ class PokemonList {
 
     return pokemons.map(renderPokemon).join('')
   }
+
+  findByName(pokemonName) {
+    //     const foundPokemon = POKEMONS.find(function(pokemon) {
+    //       return pokemon.name === pokemonName
+    //     })
+    return this.pokemons.find(function(pokemon) {
+      return pokemon.name === pokemonName
+    })
+  }
 }

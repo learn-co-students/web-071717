@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pokemonName = event.target.dataset.pokename
 
     // 2. Do some data manipulation / access
+    const foundPokemon = pokemonList.findByName(pokemonName)
 
     // 3. Render to the screen
 
@@ -35,10 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // function flipPokemon(event) {
 //   if (event.target.classList.contains('flip-image')) {
 //
-//     // 2. Do some data manipulation / access
-//     const foundPokemon = POKEMONS.find(function(pokemon) {
-//       return pokemon.name === pokemonName
-//     })
 //     const foundPokemonTemplate = renderPokemon(foundPokemon)
 //
 //     // 3. Re-render my data
