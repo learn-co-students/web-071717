@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 2. Do some data manipulation / access
     const foundPokemon = pokemonList.findByName(pokemonName)
+    foundPokemon.flipImage()
 
     // 3. Render to the screen
 

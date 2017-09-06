@@ -1,6 +1,8 @@
 class PokemonList {
   constructor(pokemons) {
-    this.pokemons = pokemons
+    this.pokemons = pokemons.map(function(pokemon) {
+      return new Pokemon(pokemon.name, pokemon.sprites.front, pokemon.sprites.back)
+    })
   }
 
   filter(searchTerm) {
