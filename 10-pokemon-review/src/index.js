@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
   pokemonContainer.addEventListener('click', function() {
     console.log('flip image on card click')
     // 1. Get some input from the user
+    const pokemonName = event.target.dataset.pokename
 
     // 2. Do some data manipulation / access
 
@@ -33,9 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // // eventHandlers.js
 // function flipPokemon(event) {
 //   if (event.target.classList.contains('flip-image')) {
-//
-//     // 1. Get input from the user
-//     const pokemonName = event.target.dataset.pokename
 //
 //     // 2. Do some data manipulation / access
 //     const foundPokemon = POKEMONS.find(function(pokemon) {
