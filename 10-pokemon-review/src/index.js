@@ -1,5 +1,9 @@
 // vanillaJS.js
 document.addEventListener('DOMContentLoaded', function() {
+  const pokemonList = new PokemonList(POKEMONS)
+
+  console.log(pokemonList)
+
   const searchInput = document.getElementById('pokemon-search-input') // OR document.querySelector('#pokemon-search-input')
   const pokemonContainer = document.getElementById('pokemon-container')
 
