@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   searchInput.addEventListener('keyup', function() {
     console.log('filter list on search input')
+
     // 1. Get some input from the user
+    const searchTerm = event.target.value
 
     // 2. Do some data manipulation / access
 
