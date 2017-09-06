@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const pokemonContainer = document.getElementById('pokemon-container')
 
   searchInput.addEventListener('keyup', function() {
-    console.log('filter list on search input')
-
     // 1. Get some input from the user
     const searchTerm = event.target.value
 
@@ -18,8 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 3. Render to the screen
     const filteredPokemonTemplate = PokemonList.render(filteredPokemon)
-
-    console.log(filteredPokemonTemplate)
+    pokemonContainer.innerHTML = filteredPokemonTemplate
   })
 
   pokemonContainer.addEventListener('click', function() {
@@ -55,8 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
 //   // This is a function which returns a function (closure) that holds on to the value of pokemonContainer
 //   return function filterPokemon(event) {
 //
-//     // 3. Render to the screen
-//     pokemonContainer.innerHTML = filteredPokemonTemplate
 //   }
 // }
 //
