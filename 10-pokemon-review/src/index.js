@@ -16,9 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // 2. Do some data manipulation / access
     const filteredPokemon = pokemonList.filter(searchTerm)
 
-    console.log(filteredPokemon)
     // 3. Render to the screen
+    const filteredPokemonTemplate = PokemonList.render(filteredPokemon)
 
+    console.log(filteredPokemonTemplate)
   })
 
   pokemonContainer.addEventListener('click', function() {
@@ -55,12 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
 //   return function filterPokemon(event) {
 //
 //     // 3. Render to the screen
-//     const filteredPokemonTemplate = filteredPokemon.map(renderPokemon).join('')
 //     pokemonContainer.innerHTML = filteredPokemonTemplate
 //   }
 // }
 //
-// function renderPokemon(pokemon) {
+//  Image flipping logic:
 //   const pokemonImg = document.getElementById(`${pokemon.name}-img`)
 //
 //   // Short circuiting
@@ -71,17 +71,3 @@ document.addEventListener('DOMContentLoaded', function() {
 //   if (imageSrc === pokemon.sprites.front) {
 //     sprite = "back"
 //   }
-//
-//   return `
-//     <div class="pokemon-card" id="${pokemon.name}">
-//       <div style="width:230px;margin:10px;background:#fecd2f;color:#2d72fc" class="pokemon-frame">
-//       <h1 class="center-text">${pokemon.name}</h1>
-//       <div style="width:239px;margin:auto">
-//         <div style="width:96px;margin:auto">
-//           <img id="${pokemon.name}-img" src="${pokemon.sprites[sprite] }">
-//         </div>
-//       </div>
-//       <p style="padding:10px;" class="center-text flip-image" data-pokename="${pokemon.name}" data-action="flip-image">flip card</p>
-//       </div>
-//     </div>`
-// }
