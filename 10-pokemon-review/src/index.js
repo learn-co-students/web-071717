@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const foundPokemon = pokemonList.findByName(pokemonName)
     foundPokemon.flipImage()
 
+    console.log(foundPokemon.backImage, foundPokemon.currentImage)
+
     // 3. Render to the screen
 
   })
@@ -56,9 +58,3 @@ document.addEventListener('DOMContentLoaded', function() {
 //
 //   // Short circuiting
 //   const imageSrc = pokemonImg && pokemonImg.src
-//
-//   // pokemon.sprites[sprite] will be front image OR back image
-//   let sprite = "front"
-//   if (imageSrc === pokemon.sprites.front) {
-//     sprite = "back"
-//   }

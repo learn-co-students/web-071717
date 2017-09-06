@@ -3,10 +3,20 @@ class Pokemon {
     this.name = name
     this.frontImage = frontImage
     this.backImage = backImage
+    this.currentImage = frontImage
   }
 
   flipImage() {
-
+    //   // pokemon.sprites[sprite] will be front image OR back image
+    //   let sprite = "front"
+    //   if (imageSrc === pokemon.sprites.front) {
+    //     sprite = "back"
+    //   }
+    if (this.currentImage === this.frontImage) {
+      this.currentImage = this.backImage
+    } else {
+      this.currentImage = this.frontImage
+    }
   }
 
   render() {
