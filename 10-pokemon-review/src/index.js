@@ -2,17 +2,7 @@
 document.addEventListener('DOMContentLoaded', loadedEvent => {
   const pokemonList = new PokemonList(POKEMONS, 'pokemon-search-input', 'pokemon-container')
 
-  pokemonList.inputEl.addEventListener('keyup', event => {
-    // 1. Get some input from the user
-    const searchTerm = event.target.value
-
-    // 2. Do some data manipulation / access
-    const filteredPokemon = pokemonList.filter(searchTerm)
-
-    // 3. Render to the screen
-    const filteredPokemonTemplate = PokemonList.render(filteredPokemon)
-    pokemonContainer.innerHTML = filteredPokemonTemplate
-  })
+  pokemonList.inputEl.addEventListener('keyup', pokemonList.handleSearch.bind(pokemonList))
 
   pokemonList.containerEl.addEventListener('click', event => {
     // Event delegation

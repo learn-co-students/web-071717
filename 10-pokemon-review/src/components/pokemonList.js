@@ -20,4 +20,16 @@ class PokemonList {
   findByName(pokemonName) {
     return this.pokemons.find(poke => poke.name === pokemonName)
   }
+
+  handleSearch(event) {
+    // 1. Get some input from the user
+    const searchTerm = event.target.value
+
+    // 2. Do some data manipulation / access
+    const filteredPokemon = this.filter(searchTerm)
+
+    // 3. Render to the screen
+    const filteredPokemonTemplate = this.constructor.render(filteredPokemon)
+    this.containerEl.innerHTML = filteredPokemonTemplate
+  }
 }
