@@ -6,14 +6,14 @@ class Pokemon {
     this.currentImage = frontImage
   }
 
+  getCardEl() {
+    return document.getElementById(this.name)
+  }
+
   flipImage() {
     this.currentImage = this.currentImage === this.frontImage
       ? this.backImage
       : this.frontImage
-  }
-
-  getCardEl() {
-    return document.getElementById(this.name)
   }
 
   render() {
