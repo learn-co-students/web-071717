@@ -1,11 +1,8 @@
 // vanillaJS.js
 document.addEventListener('DOMContentLoaded', loadedEvent => {
-  const pokemonList = new PokemonList(POKEMONS)
+  const pokemonList = new PokemonList(POKEMONS, 'pokemon-search-input', 'pokemon-container')
 
-  const searchInput = document.getElementById('pokemon-search-input') // OR document.querySelector('#pokemon-search-input')
-  const pokemonContainer = document.getElementById('pokemon-container')
-
-  searchInput.addEventListener('keyup', event => {
+  pokemonList.inputEl.addEventListener('keyup', event => {
     // 1. Get some input from the user
     const searchTerm = event.target.value
 
@@ -17,7 +14,7 @@ document.addEventListener('DOMContentLoaded', loadedEvent => {
     pokemonContainer.innerHTML = filteredPokemonTemplate
   })
 
-  pokemonContainer.addEventListener('click', event => {
+  pokemonList.containerEl.addEventListener('click', event => {
     // Event delegation
     if (event.target.classList.contains('flip-image')) {
       // 1. Get some input from the user

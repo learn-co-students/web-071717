@@ -1,8 +1,10 @@
 class PokemonList {
-  constructor(pokemons) {
+  constructor(pokemons, inputId, containerId) {
     this.pokemons = pokemons.map(poke => {
       return new Pokemon(poke.name, poke.sprites.front, poke.sprites.back)
     })
+    this.inputEl = document.getElementById(inputId)
+    this.containerEl = document.getElementById(containerId)
   }
 
   filter(searchTerm) {
