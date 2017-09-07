@@ -32,4 +32,20 @@ class PokemonList {
     const filteredPokemonTemplate = this.constructor.render(filteredPokemon)
     this.containerEl.innerHTML = filteredPokemonTemplate
   }
+
+  handleFlipImage(event) {
+    // Event delegation
+    if (event.target.classList.contains('flip-image')) {
+      // 1. Get some input from the user
+      const pokemonName = event.target.dataset.pokename
+
+      // 2. Do some data manipulation / access
+      const foundPokemon = this.findByName(pokemonName)
+      foundPokemon.flipImage()
+
+      // 3. Render to the screen
+      const foundPokemonTemplate = foundPokemon.render()
+      document.getElementById(foundPokemon.name).innerHTML = foundPokemonTemplate
+    }
+  }
 }
