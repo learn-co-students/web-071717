@@ -2,8 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const pokemonList = new PokemonList(POKEMONS)
 
-  console.log(pokemonList)
-
   const searchInput = document.getElementById('pokemon-search-input') // OR document.querySelector('#pokemon-search-input')
   const pokemonContainer = document.getElementById('pokemon-container')
 
@@ -22,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
   pokemonContainer.addEventListener('click', function() {
     // Event delegation
     if (event.target.classList.contains('flip-image')) {
-      console.log('flip image on card click')
       // 1. Get some input from the user
       const pokemonName = event.target.dataset.pokename
 
@@ -36,18 +33,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   })
 })
-
-// // eventHandlers.js
-//
-// function getFilterPokemonCallback(pokemonContainer) {
-//   // This is a function which returns a function (closure) that holds on to the value of pokemonContainer
-//   return function filterPokemon(event) {
-//
-//   }
-// }
-//
-//  Image flipping logic:
-//   const pokemonImg = document.getElementById(`${pokemon.name}-img`)
-//
-//   // Short circuiting
-//   const imageSrc = pokemonImg && pokemonImg.src
