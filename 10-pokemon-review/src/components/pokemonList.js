@@ -6,13 +6,11 @@ class PokemonList {
   }
 
   filter(searchTerm) {
-    if (!searchTerm) {
-      return  []
-    }
-
-    return this.pokemons.filter(function(pokemon) {
-      return pokemon.name.includes(searchTerm)
-    })
+    return searchTerm
+      ? this.pokemons.filter(function(pokemon) {
+          return pokemon.name.includes(searchTerm)
+        })
+      : []
   }
 
   static render(pokemons) {

@@ -7,11 +7,9 @@ class Pokemon {
   }
 
   flipImage() {
-    if (this.currentImage === this.frontImage) {
-      this.currentImage = this.backImage
-    } else {
-      this.currentImage = this.frontImage
-    }
+    this.currentImage = this.currentImage === this.frontImage
+      ? this.backImage
+      : this.frontImage
   }
 
   render() {
