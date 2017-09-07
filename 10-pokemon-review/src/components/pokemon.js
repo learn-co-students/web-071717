@@ -12,6 +12,10 @@ class Pokemon {
       : this.frontImage
   }
 
+  getCardEl() {
+    return document.getElementById(this.name)
+  }
+
   render() {
     return `
       <div class="pokemon-card" id="${this.name}">

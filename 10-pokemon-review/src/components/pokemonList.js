@@ -45,7 +45,7 @@ class PokemonList {
 
       // 3. Render to the screen
       const foundPokemonTemplate = foundPokemon.render()
-      document.getElementById(foundPokemon.name).innerHTML = foundPokemonTemplate
+      foundPokemon.getCardEl().innerHTML = foundPokemonTemplate
     }
   }
 }
