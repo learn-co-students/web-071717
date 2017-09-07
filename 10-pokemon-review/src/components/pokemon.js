@@ -1,4 +1,5 @@
 class Pokemon {
+  // Constructor function invoked with `new` keyword
   constructor(name, frontImage, backImage) {
     this.name = name
     this.frontImage = frontImage
@@ -6,16 +7,19 @@ class Pokemon {
     this.currentImage = frontImage
   }
 
+  // Get the element of the pokemon card div on the page
   getCardEl() {
     return document.getElementById(this.name)
   }
 
+  // Update the currentImage property on a pokemon
   flipImage() {
     this.currentImage = this.currentImage === this.frontImage
       ? this.backImage
       : this.frontImage
   }
 
+  // Tell our program how to render a single pokemon card
   render() {
     return `
       <div class="pokemon-card" id="${this.name}">
