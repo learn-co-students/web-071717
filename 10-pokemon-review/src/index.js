@@ -20,26 +20,24 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 
   pokemonContainer.addEventListener('click', function() {
-    console.log('flip image on card click')
-    // 1. Get some input from the user
-    const pokemonName = event.target.dataset.pokename
+    // Event delegation
+    if (event.target.classList.contains('flip-image')) {
+      console.log('flip image on card click')
+      // 1. Get some input from the user
+      const pokemonName = event.target.dataset.pokename
 
-    // 2. Do some data manipulation / access
-    const foundPokemon = pokemonList.findByName(pokemonName)
-    foundPokemon.flipImage()
+      // 2. Do some data manipulation / access
+      const foundPokemon = pokemonList.findByName(pokemonName)
+      foundPokemon.flipImage()
 
-    // 3. Render to the screen
-    const foundPokemonTemplate = foundPokemon.render()
-    document.getElementById(foundPokemon.name).innerHTML = foundPokemonTemplate
+      // 3. Render to the screen
+      const foundPokemonTemplate = foundPokemon.render()
+      document.getElementById(foundPokemon.name).innerHTML = foundPokemonTemplate
+    }
   })
 })
 
 // // eventHandlers.js
-// function flipPokemon(event) {
-//   if (event.target.classList.contains('flip-image')) {
-//
-//   }
-// }
 //
 // function getFilterPokemonCallback(pokemonContainer) {
 //   // This is a function which returns a function (closure) that holds on to the value of pokemonContainer
