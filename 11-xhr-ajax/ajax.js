@@ -2,10 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const getDataEl = document.getElementById('get-data')
 
-  $.ajax({
-    // info
-  }).then(function() {}).then(function() {})fail(function() {})
-
   getDataEl.addEventListener('click', function(event) {
     $.ajax({
       method: 'GET',
