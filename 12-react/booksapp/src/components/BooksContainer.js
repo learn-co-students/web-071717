@@ -1,12 +1,25 @@
 import React from 'react'
 import BooksList from './BooksList'
 import BooksForm from './BooksForm'
+import { fetchBooks } from '../services/books'
 
 class BooksContainer extends React.Component {
 
+
+
     state = {
-      books: [{id: 1, title:"The Count of Monte Cristo", genre:"Suspense"}, {id:2, title:"The Three Musketeers", genre:"Action & Adventure"}]
+      books: []
     }
+
+
+
+
+  componentDidMount() {
+    fetchBooks("suspense")
+      .then((json) => {
+        this.setState({ books: json.items})
+      })
+  }
 
 
   addBook = (book) => {
@@ -22,7 +35,7 @@ class BooksContainer extends React.Component {
 
 
   removeBook = (title) => {
-    const filteredBooks = this.state.books.filter((book) => book.title !== title)
+    const filteredBooks = this.state.books.filter((book) => book.volumeInfo.title !== title)
     this.setState({
       books: filteredBooks
     })
@@ -37,6 +50,10 @@ class BooksContainer extends React.Component {
     })
     console.log("AFTER CLICK", this.state.books)
   }
+
+
+
+
 
   render() {
     console.log("RENDERING BOOKSCONTAINER", this.state.books)
