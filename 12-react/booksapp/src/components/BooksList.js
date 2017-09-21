@@ -7,7 +7,7 @@ import BookItem from './BookItem'
 //
 //     const bookItems = this.props.books.map((book, index) => {
 //
-//       return <BookItem key={index} book={book}/>
+//       return <BookItem key={index} book={book} onRemove={this.props.onRemove}/>
 //     })
 //
 //     return (
