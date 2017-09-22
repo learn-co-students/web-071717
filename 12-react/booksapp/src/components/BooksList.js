@@ -4,18 +4,6 @@ import BookItem from './BookItem'
 class BooksList extends React.Component {
 
 
-
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps, this.props)
-  }
-
-
-  shouldComponentUpdate(nextProps) {
-    console.log(nextProps)
-    return true
-  }
-
-
   render() {
     const bookItems = this.props.books.map((book, index) => {
 

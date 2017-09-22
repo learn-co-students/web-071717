@@ -1,7 +1,6 @@
 import React from 'react'
 
-// const BookItem = (props) => {
-//   console.log(this.state)
+
 //
 //
 //   const handleButtonClick = () => {
