@@ -11,9 +11,15 @@ class BooksList extends React.Component {
   }
 
 
+  componentDidMount() {
+    console.log("MOUNTING BOOKSLIST")
+  }
+
+
 
 
   render() {
+    console.log("RENDERING BOOKSLIST")
     const bookItems = this.props.books.map((book, index) => {
 
       return <Grid.Column width={2} key={index}><BookItem key={index} id={index} book={book} onRemove={this.props.onRemove} onAddToCart={this.props.onAddToCart}/></Grid.Column>

@@ -15,7 +15,7 @@ class BooksContainer extends React.Component {
   }
 
   componentDidMount() {
-
+    console.log("COMPONENTDIDMOUNTING - BOOKSCONTAINER")
     fetchBooks("suspense")
       .then((json) => {
         this.setState({ books: json.items})
@@ -58,22 +58,23 @@ class BooksContainer extends React.Component {
     return (
         <div>
           <Grid>
-            <Grid.Column width={width}>
+            <Grid.Column width={16}>
               <Route exact path="/books" render={(props) => <BooksList books={this.state.books} onRemove={this.removeBook} {...props}  onSearch={this.searchBooks} isSearching={this.state.isSearching} onAddToCart={this.props.addToCart}/>}/>
-              <Route path="/books/:id" render={(props) => {
 
-                const { id } = props.match.params
-                if (this.state.books.length > 0) {
-                  const book = this.state.books[id]
-                  return <BookDetail  {...book} {...props}/>
-                } else {
-                  return null
-                }
+              <Route path="/books/:id" render={(routeProps) => {
+                  const id = routeProps.match.params.id
+                  // since i have an id
+                  // what do i with it
+                  // MORE REASONS I DONT LIKE JAVASCRIPT
+                  if (this.state.books.length) {
+                    const book = this.state.books[id]
+                    return <BookDetail {...book} />
+                  } else {
+                    return null
+                  }
                 }} />
               </Grid.Column>
-              <Grid.Column>
-                <Cart cart={this.props.cart} onClearCart={this.props.onClearCart}/>
-              </Grid.Column>
+
             </Grid>
         </div>
     )

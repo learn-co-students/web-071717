@@ -7,6 +7,7 @@ class Cart extends React.Component {
     this.props.onClearCart()
   }
   render() {
+    console.log(this.props)
     const cartItems = this.props.cart.map((item, index) => <List.Item key={index}>{item.volumeInfo.title}</List.Item>)
     return (
       <div>

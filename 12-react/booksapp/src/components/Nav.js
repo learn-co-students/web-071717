@@ -6,6 +6,7 @@ class Nav extends React.Component {
     return (
       <div className="ui secondary menu">
         <NavLink activeClassName="active" className="item" to="/books">Books</NavLink>
+        <NavLink activeClassName="active" className="item" to="/cart">Cart</NavLink>
         <NavLink className="item right" to="/logout">Logout</NavLink>
       </div>
     )

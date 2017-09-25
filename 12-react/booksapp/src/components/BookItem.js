@@ -19,7 +19,8 @@ class BookItem extends React.Component {
     return (
       <div>
         <Card>
-          <Image src={book.volumeInfo.imageLinks.thumbnail} />
+
+          { book.volumeInfo.imageLinks ? <Image src={book.volumeInfo.imageLinks.thumbnail} /> : null }
           <Card.Content>
             <Card.Header>
               <Link to={"/books/" + this.props.id}>{book.volumeInfo.title}</Link>
