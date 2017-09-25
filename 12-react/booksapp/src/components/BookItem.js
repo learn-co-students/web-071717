@@ -1,17 +1,7 @@
 import React from 'react'
+import { Card, Button } from 'semantic-ui-react'
 
 
-//
-//
-//   const handleButtonClick = () => {
-//     props.onRemove(props.book.title)
-//   }
-//   return <li>{props.book.id} - {props.book.genre} - {props.book.title} <button onClick={handleButtonClick}>X</button></li>
-// }
-
-
-//
-//
 class BookItem extends React.Component {
   componentWillUnmount() {
   }
@@ -19,7 +9,16 @@ class BookItem extends React.Component {
     this.props.onRemove(this.props.book.volumeInfo.title)
   }
   render() {
-    return (<li>{this.props.book.volumeInfo.title} <button onClick={this.handleButtonClick}>X</button></li>)
+    const { book } = this.props
+
+    return (
+      <Card
+        image={book.volumeInfo.imageLinks.thumbnail}
+        header={book.volumeInfo.title}
+        description={book.volumeInfo.description.slice(0,100) + "..."}
+        extra={<Button onClick={this.handleButtonClick}>X</Button>}
+      />
+    )
   }
 }
 export default BookItem

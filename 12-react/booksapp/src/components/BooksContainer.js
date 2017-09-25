@@ -15,6 +15,7 @@ class BooksContainer extends React.Component {
 
 
   componentDidMount() {
+    console.log("Mounting Books Container", this.state.books)
     fetchBooks("suspense")
       .then((json) => {
         this.setState({ books: json.items})
@@ -56,13 +57,20 @@ class BooksContainer extends React.Component {
 
 
   render() {
-    console.log("RENDERING BOOKSCONTAINER", this.state.books)
+    console.log("RENDERING BOOKSCONTAINER", this.props)
 
+    const bookid = this.props.match.params.id
+
+
+      console.log(this.state.books)
+      const booksToShow = bookid && this.state.books.length > 0 ? [this.state.books[bookid-1]] : this.state.books
+      console.log(bookid)
+      console.log(booksToShow)
 
     return (
       <div>
         <BooksForm onAdd={this.addBook}/>
-        <BooksList books={this.state.books} onRemove={this.removeBook}/>
+        <BooksList books={booksToShow} onRemove={this.removeBook}/>
         { this.state.books.length !== 0 ? <button onClick={this.handleClick}>Delete All Books</button> : null }
 
       </div>
