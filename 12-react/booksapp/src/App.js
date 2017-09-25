@@ -21,12 +21,19 @@ class App extends Component {
 
   }
 
+
+  clearCart = () => {
+    this.setState({
+      cart: []
+    })
+  }
+
   render() {
-    
+
     return (
       <div className="App">
         <Route path="/" component={Nav}/>
-        <BooksContainer cart={this.state.cart} addToCart={this.addToCart} />
+        <BooksContainer cart={this.state.cart} addToCart={this.addToCart} onClearCart={this.clearCart} />
 
 
       </div>

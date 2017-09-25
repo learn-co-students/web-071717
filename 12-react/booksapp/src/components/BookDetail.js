@@ -4,9 +4,12 @@ import { Grid, Image, Rating, Header, List} from 'semantic-ui-react'
 
 
 class BookDetail extends React.Component {
+
+
+
   render() {
-  
-    const { authors, categories, description, pageCount, publisher, publishedDate, title, imageLinks, industryIdentifiers, averageRating } = this.props.volumeInfo
+
+    const { authors, categories, description, pageCount, publisher, publishedDate, title, imageLinks, industryIdentifiers, averageRating } = this.props.volumeInfo   
 
     return (
 

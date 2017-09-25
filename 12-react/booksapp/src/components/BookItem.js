@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, Icon } from 'semantic-ui-react'
+import { Card, Button, Icon, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 class BookItem extends React.Component {
@@ -13,21 +13,29 @@ class BookItem extends React.Component {
   render() {
     const { book } = this.props
 
-    const extraCardDetails = (
-      <div>
-        <Icon onClick={this.handleButtonClick} name="shopping basket"/>
-        <Link to={"/books/" + this.props.id}>See Details</Link>
-      </div>
-    )
+
 
 
     return (
-      <Card
-        image={book.volumeInfo.imageLinks.thumbnail}
-        header={book.volumeInfo.title}
-        description={book.volumeInfo.description ? book.volumeInfo.description.slice(0,100) + "..." : ""}
-        extra={extraCardDetails}
-      />
+      <div>
+        <Card>
+          <Image src={book.volumeInfo.imageLinks.thumbnail} />
+          <Card.Content>
+            <Card.Header>
+              <Link to={"/books/" + this.props.id}>{book.volumeInfo.title}</Link>
+            </Card.Header>
+
+          </Card.Content>
+          <Card.Content extra>
+            <Icon onClick={this.handleButtonClick} name="shopping basket"/>
+          </Card.Content>
+
+        </Card>
+
+
+      </div>
+
+
     )
   }
 }
