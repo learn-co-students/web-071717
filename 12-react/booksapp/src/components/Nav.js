@@ -1,17 +1,13 @@
 import React from 'react'
-import { Menu } from 'semantic-ui-react'
+import { NavLink } from 'react-router-dom'
 
 class Nav extends React.Component {
   render() {
     return (
-      <Menu secondary>
-        <Menu.Item name='messages'  />
-        <Menu.Item name='friends' />
-        <Menu.Menu position='right'>
-          
-          <Menu.Item name='logout' />
-        </Menu.Menu>
-      </Menu>
+      <div className="ui secondary menu">
+        <NavLink activeClassName="active" className="item" to="/books">Books</NavLink>
+        <NavLink className="item right" to="/logout">Logout</NavLink>
+      </div>
     )
   }
 }

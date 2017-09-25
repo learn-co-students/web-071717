@@ -1,27 +1,37 @@
 import React from 'react'
 import BooksList from './BooksList'
-import BooksForm from './BooksForm'
-import { fetchBooks } from '../services/books'
-
+import Cart from './Cart'
+import BookDetail from './BookDetail'
+import { fetchBooks, searchBooks } from '../services/books'
+import { Route, Link } from 'react-router-dom'
+import { Grid, List} from 'semantic-ui-react'
 class BooksContainer extends React.Component {
 
 
 
-    state = {
-      books: []
-    }
-
-
-
+  state = {
+    books: [],
+    isSearching: false
+  }
 
   componentDidMount() {
-    console.log("Mounting Books Container", this.state.books)
+    
     fetchBooks("suspense")
       .then((json) => {
         this.setState({ books: json.items})
       })
   }
 
+
+  searchBooks = (title) => {
+    this.setState({
+      isSearching: true
+    })
+    searchBooks(title)
+      .then((json) => {
+        this.setState({books: json.items, isSearching: false})
+      })
+  }
 
   addBook = (book) => {
 
@@ -42,40 +52,44 @@ class BooksContainer extends React.Component {
     })
   }
 
-  handleClick = () => {
-    console.log("BEFORE CLICK", this.state.books)
-    this.setState({
-      books: []
-    }, () => {
-      console.log("AFTER SET STATE", this.state.books)
-    })
-    console.log("AFTER CLICK", this.state.books)
-  }
-
-
-
-
-
   render() {
-    console.log("RENDERING BOOKSCONTAINER", this.props)
-
-    const bookid = this.props.match.params.id
-
-
-      console.log(this.state.books)
-      const booksToShow = bookid && this.state.books.length > 0 ? [this.state.books[bookid-1]] : this.state.books
-      console.log(bookid)
-      console.log(booksToShow)
+    const width = this.props.cart.length == 0 ? 16 : 12
 
     return (
       <div>
-        <BooksForm onAdd={this.addBook}/>
-        <BooksList books={booksToShow} onRemove={this.removeBook}/>
-        { this.state.books.length !== 0 ? <button onClick={this.handleClick}>Delete All Books</button> : null }
 
-      </div>
+
+        <Grid>
+
+        <Grid.Column width={width}>
+
+
+
+
+        <Route exact path="/books" render={(props) => <BooksList books={this.state.books} onRemove={this.removeBook} {...props}  onSearch={this.searchBooks} isSearching={this.state.isSearching} onAddToCart={this.props.addToCart}/>}/>
+        <Route path="/books/:id" render={(props) => {
+
+            const { id } = props.match.params
+            if (this.state.books.length > 0) {
+              const book = this.state.books[id]
+              console.log(book)
+              return <BookDetail  {...book} {...props}/>
+            } else {
+              return null
+            }
+          }} />
+          </Grid.Column>
+            <Grid.Column>
+              <Cart cart={this.props.cart}/>
+            </Grid.Column>
+          </Grid>
+
+    </div>
     )
   }
 }
+
+
+
 
 export default BooksContainer

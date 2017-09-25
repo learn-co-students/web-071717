@@ -1,24 +1,38 @@
 import React from 'react'
 import BookItem from './BookItem'
 import { Grid } from 'semantic-ui-react'
+import BooksSearch from './BooksSearch'
 
 class BooksList extends React.Component {
+
+
+  state = {
+    books: []
+  }
+
+
 
 
   render() {
     const bookItems = this.props.books.map((book, index) => {
 
-      return <Grid.Column key={index}><BookItem key={index} book={book} onRemove={this.props.onRemove}/></Grid.Column>
+      return <Grid.Column width={2} key={index}><BookItem key={index} id={index} book={book} onRemove={this.props.onRemove} onAddToCart={this.props.onAddToCart}/></Grid.Column>
     })
 
     return (
-      <Grid columns={4} divided>
-        <Grid.Row>
+      <div>
+        <BooksSearch onSearch={this.props.onSearch} isSearching={this.props.isSearching}/>
+        <div style={{"paddingTop": '10px'}}>
+          <Grid>
+            <Grid.Row>
 
-            {bookItems}
 
-        </Grid.Row>
-      </Grid>
+                {bookItems}
+
+            </Grid.Row>
+          </Grid>
+        </div>
+      </div>
 
     )
   }
