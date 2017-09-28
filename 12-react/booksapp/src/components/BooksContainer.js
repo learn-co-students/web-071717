@@ -68,8 +68,6 @@ class BooksContainer extends React.Component {
     const width = this.props.cart.length == 0 ? 16 : 12
 
 
-    if (localStorage.getItem("jwtToken")) {
-
       return (
           <div>
             <button onClick={this.handleLogout}>Log me Out</button>
@@ -94,15 +92,6 @@ class BooksContainer extends React.Component {
               </Grid>
           </div>
       )
-
-
-    } else if (this.props.location.pathname == "/login") {
-      // do nothing
-    }else {
-      return <Redirect to="/login" />
-    }
-
-
   }
 }
 
