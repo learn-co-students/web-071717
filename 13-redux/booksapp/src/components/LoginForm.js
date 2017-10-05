@@ -42,7 +42,6 @@ class LoginForm extends React.Component {
   }
   render() {
 
-    console.log("RENDERING")
     // ARE WE LOGGED IN
       return (
         <form onSubmit={this.handleSubmit}>

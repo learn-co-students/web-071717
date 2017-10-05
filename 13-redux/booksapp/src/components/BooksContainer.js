@@ -6,9 +6,7 @@ import { fetchBooks, searchBooks } from '../services/books'
 import { Route, Link, Switch, Redirect } from 'react-router-dom'
 import { Grid, List} from 'semantic-ui-react'
 import { logoutUser } from '../services/user'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as BookActions from '../actions/books'
+
 class BooksContainer extends React.Component {
 
 
@@ -100,18 +98,6 @@ class BooksContainer extends React.Component {
 
 
 
-function mapStateToProps(state) {
-  console.log(state)
-  return {
-    booksList: state.books.list
-
-  }
-}
 
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(BookActions, dispatch)
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(BooksContainer)
+export default BooksContainer

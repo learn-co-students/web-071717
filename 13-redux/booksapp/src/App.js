@@ -52,14 +52,14 @@ class App extends Component {
     fetch("http://localhost:3000/welcome")
       .then((res) => res.json())
       .then((json) => {
-        console.log(json)
+
       })
   }
 
 
 
   addToCart = (book) => {
-    console.log(book)
+  
 
     this.setState({
       cart: [...this.state.cart, book]
