@@ -1,12 +1,14 @@
 import React from 'react'
 import { Card, Button, Icon, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { removeBook } from '../actions/books'
 
 class BookItem extends React.Component {
 
   
-  handleTrash = () => {
-    this.props.onRemove(this.props.book.title)
+  handleTrash = (event) => {
+    this.props.remove(this.props.book.id)
   }
   
   handleAddCart = () => {
@@ -14,6 +16,7 @@ class BookItem extends React.Component {
   }
   
   render() {
+    console.log(this.props)
     const { book } = this.props
     return (
       <div>
@@ -41,6 +44,15 @@ class BookItem extends React.Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  const newProps =  {
+    remove: (id) => {
+      dispatch(removeBook(id))
+    }
+  }
+  return newProps
+}
 
 
-export default BookItem
+
+export default connect(null, mapDispatchToProps)(BookItem)

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Input, Icon } from 'semantic-ui-react'
-
+import { connect } from 'react-redux'
+import { addBook } from '../actions/books'
 class BooksForm extends React.Component {
 
   constructor() {
@@ -15,7 +16,7 @@ class BooksForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     console.log(this.state.inputTitle)
-    this.props.addBook(this.state.inputTitle)
+    this.props.add(this.state.inputTitle)
     this.setState({
       inputTitle: "",
     })
@@ -30,10 +31,8 @@ class BooksForm extends React.Component {
   }
 
 
-
-
-
   render() {
+    console.log(this.props)
     return (
       <div>
 
@@ -47,4 +46,13 @@ class BooksForm extends React.Component {
 }
 
 
-export default BooksForm
+
+function mapDispatchToProps(dispatch) {
+  return {
+    add: (title) => {
+      dispatch(addBook(title))
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(BooksForm)
