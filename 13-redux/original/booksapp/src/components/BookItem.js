@@ -3,32 +3,32 @@ import { Card, Button, Icon, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 class BookItem extends React.Component {
+  componentWillUnmount() {
+  }
+  handleButtonClick = () => {
 
-  
-  handleTrash = () => {
-    this.props.onRemove(this.props.book.title)
+    this.props.onAddToCart(this.props.book)
+    //this.props.onRemove(this.props.book.volumeInfo.title)
   }
-  
-  handleAddCart = () => {
-    
-  }
-  
   render() {
     const { book } = this.props
+
+
+
+
     return (
       <div>
         <Card>
 
-          { book ? <Image src={book.thumbnail} /> : null }
+          { book.volumeInfo.imageLinks ? <Image src={book.volumeInfo.imageLinks.thumbnail} /> : null }
           <Card.Content>
             <Card.Header>
-              <Link to={"/books/" + book.id}>{book.title}</Link>
+              <Link to={"/books/" + this.props.id}>{book.volumeInfo.title}</Link>
             </Card.Header>
 
           </Card.Content>
           <Card.Content extra>
-            <Icon onClick={this.handleTrash} name="trash"/>
-            <Icon onClick={this.handleAddCart} name="plus cart"/>
+            <Icon onClick={this.handleButtonClick} name="shopping basket"/>
           </Card.Content>
 
         </Card>
