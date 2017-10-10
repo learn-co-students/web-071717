@@ -15,7 +15,6 @@ class BooksForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state.inputTitle)
     this.props.add(this.state.inputTitle)
     this.setState({
       inputTitle: "",
@@ -32,7 +31,6 @@ class BooksForm extends React.Component {
 
 
   render() {
-    console.log(this.props)
     return (
       <div>
 
@@ -47,12 +45,5 @@ class BooksForm extends React.Component {
 
 
 
-function mapDispatchToProps(dispatch) {
-  return {
-    add: (title) => {
-      dispatch(addBook(title))
-    }
-  }
-}
 
-export default connect(null, mapDispatchToProps)(BooksForm)
+export default BooksForm
