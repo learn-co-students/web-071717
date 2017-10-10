@@ -22,7 +22,7 @@ class BookItem extends React.Component {
           { book ? <Image src={book.thumbnail} /> : null }
           <Card.Content>
             <Card.Header>
-              <Link to={"/books/" + book.id}>{book.title}</Link>
+              <Link to={"/books/" + book.id}>{book.volumeInfo.title}</Link>
             </Card.Header>
 
           </Card.Content>
